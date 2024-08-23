@@ -1,93 +1,76 @@
-# Student_Grading
+Grade Recording System with XRPL
+Overview
+The Grade Recording System with XRPL is a web-based application that utilizes blockchain technology to securely and transparently record academic grades. This system leverages the XRP Ledger (XRPL) for storing and managing academic records, ensuring data integrity and immutability. This project uses Express.js for the backend, integrating the XRPL for blockchain functionality.
 
+Features
+Blockchain-Based Grade Storage: Securely stores student grade records on the XRPL, ensuring immutability.
+Record History: Maintains a history of all grade records stored during the application's runtime.
+Web Interface: Provides a simple web interface for interacting with the system.
+Unique Record Identification: Uses unique identifiers for each record to ensure traceability.
 
+Prerequisites
+Node.js and npm installed on your system.
+Internet connection to connect to the XRPL testnet.
+Setup and Installation
+Clone the Repository:
 
-## Getting started
+bash
+Copy code
+git@gitlab.com:xrpl2/student_grading.git
+cd grade-recording-system-xrpl
+Install Dependencies:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+bash
+Copy code
+npm install
+Run the Application:
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+bash
+Copy code
+node app.js
+Access the Web Interface:
 
-## Add your files
+Open your web browser and navigate to http://localhost:3000 to access the Grade Recording System.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Code Structure
+Express Setup: The application uses Express.js to set up a simple server. It listens on port 3000 and serves the static files required for the frontend.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/xrpl2/student_grading.git
-git branch -M main
-git push -uf origin main
-```
+Routes:
+GET /frontend.js: Serves the frontend JavaScript file for the application.
+GET /history: Returns the record history as JSON.
+POST /create-record: Accepts a JSON payload to create a new grade record, stores it in memory, and interacts with the XRPL.
+Record History: Stores all records in an array during the application's runtime. In a real application, this would be replaced by a database for persistent storage.
+Ripple (XRP) Ledger Integration: The application connects to the XRPL testnet to interact with the blockchain. Ensure the testnet connection URL is correct and the Ripple client is initialized properly.
+Usage
+Access the Application:
+Open the web browser and go to http://localhost:3000.
+Create a Record:
+Send a POST request to /create-record with the required data: studentId, name, course, grade, year, and rippleAddress.
 
-## Integrate with your tools
+Example payload:
+json
+Copy code
+{
+  "studentId": "12345",
+  "name": "John Doe",
+  "course": "Blockchain 101",
+  "grade": "A",
+  "year": "2024",
+  "rippleAddress": "rPT1Sjq2YGrBMTttX4GZHjKu9dyfzbpAYe"
+}
 
-- [ ] [Set up project integrations](https://gitlab.com/xrpl2/student_grading/-/settings/integrations)
+View Record History:
+Send a GET request to /history to retrieve all stored records.
+Functions
+generateRandomId(): Generates a random ID for each record. This can be replaced with a more robust ID generation mechanism as needed.
 
-## Collaborate with your team
+Important Notes
+This project currently uses an in-memory array (recordHistory) to store records. In a production environment, consider using a database like MongoDB or MySQL for persistent storage.
+The Ripple integration is set to use the testnet (wss://s.altnet.rippletest.net:51233). Ensure to switch to the mainnet for production use and handle credentials securely.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Error Handling
+If the provided data is incomplete or incorrect, the server responds with a 400 status code and an error message.
+In case of a failure in connecting to the XRPL or processing the transaction, the server responds with a 500 status code and the error message.
 
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Conclusion
+This Grade Recording System with XRPL project demonstrates the integration of blockchain technology with academic record-keeping. It provides a secure, transparent, and efficient way to manage student grades using the XRP Ledger.
