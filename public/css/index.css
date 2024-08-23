@@ -1,0 +1,147 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    padding-bottom: 70px; /* Add padding-bottom to accommodate the fixed footer */
+}
+
+/* Navigation styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0f100f;
+    padding: 20px 0;
+    z-index: 999; /* Ensure the navigation bar appears above other elements */
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #417bcc;
+}
+
+/* Header styles */
+.heading {
+    text-align: center;
+    margin-top: 70px; /* Adjusted margin-top to accommodate the fixed navigation bar */
+}
+
+.heading h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.heading h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.heading h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Main content styles */
+.body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.mission,
+.whyus {
+    margin-top: 50px;
+}
+
+.mission h2,
+.whyus h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mission p,
+.whyus p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* .mission{
+    background-color: rgb(181, 190, 198);
+}
+.division1{
+    background-color: rgb(155, 160, 158);
+} */
+
+/* Footer styles */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        display: block;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+    }
+
+    .body {
+        padding: 70px 20px 20px; /* Adjusted padding for smaller screens */
+    }
+
+    .heading h1 {
+        font-size: 2.5em;
+    }
+
+    .heading h2 {
+        font-size: 1.5em;
+    }
+
+    .heading h3 {
+        font-size: 1.2em;
+    }
+}

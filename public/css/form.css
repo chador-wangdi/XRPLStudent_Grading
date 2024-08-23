@@ -1,0 +1,64 @@
+/* Styles for the form */
+.formAll {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-bottom: 60px; /* Adjust the bottom margin to create space for the footer */
+}
+
+.headingForm {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#recordForm {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+.formInput label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formInput input[type="text"] {
+    width: calc(100% - 22px); /* Adjusted width to accommodate scrollbar width */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.formInput button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .formAll {
+        padding: 10px;
+    }
+
+    #recordForm {
+        padding: 15px;
+    }
+
+    .formInput input[type="text"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .formInput button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}

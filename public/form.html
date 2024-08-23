@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record System</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./form.html">Form</a></li>
+            <li><a href="./history.html">Records</a></li>
+            <!-- <li><a href="#about">About</a></li> -->
+        </ul>
+    </nav>
+    <div class="formAll">
+        <header class="headingForm">
+            <h1>Start recording your grade Student Record System</h1>
+        </header>
+        <form id="recordForm">
+            <h3>Record Your Grades</h3>
+            <div class="formInput">
+                <label for="studentId">Student ID:</label><br>
+                <input type="text" id="studentId" required><br>
+
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" required><br>
+
+                <label for="year">Year:</label><br>
+                <input type="text" id="year" required><br>
+
+                <label for="course">Course:</label><br>
+                <input type="text" id="course" required><br>
+                <label for="grade">Grade:</label><br>
+                <input type="text" id="grade" required><br>
+
+                <button type="submit" onclick="submitRecord()">Submit</button>
+            </div>
+
+            <div id="result"></div>
+        </form>        
+    </div>
+    <footer>
+        <p>A decentralized blockchain technology primarily designed for fast and low-cost digital payments <br>© 2024 XRP Student Grading</p>
+    </footer>
+    <script>
+        function submitRecord() {
+            // Get form values
+            const studentId = document.getElementById('studentId').value;
+            const name = document.getElementById('name').value;
+            const year = document.getElementById('year').value;
+            const course = document.getElementById('course').value;
+            const grade = document.getElementById('grade').value;
+
+            // Display the submitted information
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML =
+                `<h2>Submitted Information</h2>
+                <p><strong>Student ID:</strong> ${studentId}</p>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Year:</strong> ${year}</p>
+                <p><strong>Course:</strong> ${course}</p>
+                <p><strong>Grade:</strong> ${grade}</p>`;
+        }
+
+    </script>
+    <script src="frontend.js"></script>
+
+</body>
+
+</html>
